@@ -1,0 +1,19 @@
+# Language setting
+language: node_js
+
+env:
+  global:
+    - REGISTRY_URL=ttrahan # {account name}
+    - REPO=alpine-sample-docker
+
+build:
+  pre_ci:
+    - docker build -t="$REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER" .
+    - docker push $REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER
+  ci:
+    - echo 'CI is running'
+
+integrations:
+  hub:
+    - integrationName: "Docker Hub"
+      type: docker
