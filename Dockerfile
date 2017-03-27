@@ -2,6 +2,7 @@ FROM mhart/alpine-node:latest
 
 RUN apk add --update \
     bash \
+    coreutils \
     git \
     openssh-client \
     sudo \
