@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:0.10
+FROM mhart/alpine-node:latest
 
 RUN apk add --update \
     bash \
@@ -13,4 +13,4 @@ RUN cd /app && npm install
 
 EXPOSE 80
 
-ENTRYPOINT ["/nodejs/bin/npm", "start"]
+ENTRYPOINT ["/usr/bin/npm", "start"]
