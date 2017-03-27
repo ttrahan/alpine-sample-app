@@ -19,6 +19,7 @@ build:
 
   ci:
     - echo 'CI is running'
+    - docker inspect c.exec.alpine-sample-app.$BUILD_NUMBER.1
 
 integrations:
   hub:
