@@ -4,7 +4,7 @@ language: node_js
 env:
   global:
     - REGISTRY_URL=ttrahan # {account name}
-    - REPO=alpine-sample-docker
+    - REPO=shippable-alpine
 
 build:
   pre_ci:
