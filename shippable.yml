@@ -13,7 +13,7 @@ build:
 
   pre_ci_boot:
     image_name: ttrahan/shippable-alpine
-    image_tag: latest
+    image_tag: $BRANCH.$BUILD_NUMBER
     pull: true
     options: "-e HOME=/root"
 
