@@ -7,15 +7,18 @@ env:
     - REPO=alpine-sample-docker
 
 build:
+  pre_ci:
+    - docker build -t="$REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER" .
+    - docker push $REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER
+
   pre_ci_boot:
     image_name: ttrahan/shippable-alpine
     image_tag: latest
     pull: true
     options: "-e HOME=/root"
+
   ci:
     - echo 'CI is running'
-    - docker build -t="$REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER" .
-    - docker push $REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
 integrations:
   hub:
