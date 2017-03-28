@@ -7,6 +7,7 @@ RUN apk add --no-cache --update \
     openssh-client \
     sudo \
     python \
+    py-pip \
     nodejs
 
 
