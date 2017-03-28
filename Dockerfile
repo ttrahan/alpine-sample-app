@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:latest
+FROM jeanblanchard/alpine-glibc:latest
 
 RUN apk add --no-cache --update \
     bash \
@@ -6,14 +6,7 @@ RUN apk add --no-cache --update \
     git \
     openssh-client \
     sudo \
-    python \
-    py-pip
-
-RUN apk add --no-cache ca-certificates wget \
-    && apk update-ca-certificates \
-    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/sgerrand/alpine-pkg-glibc/master/sgerrand.rsa.pub \
-    && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/glibc-2.25-r0.apk \
-    && apk add glibc-2.25-r0.apk
+    python
 
 ADD . /app
 
