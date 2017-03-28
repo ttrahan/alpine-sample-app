@@ -10,8 +10,4 @@ RUN apk add --no-cache --update \
 
 ADD . /app
 
-RUN cd /app && npm install
-
-EXPOSE 80
-
-ENTRYPOINT ["/usr/bin/npm", "start"]
+ENTRYPOINT ["/home/shippable/cexec/dist/main/main"]
