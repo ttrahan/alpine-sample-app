@@ -19,6 +19,8 @@ build:
 
   ci:
     - echo 'CI is running'
+    - apk update && apk add nodejs
+    - npm install
     - docker inspect c.exec.alpine-sample-app.$BUILD_NUMBER.1
 
 integrations:

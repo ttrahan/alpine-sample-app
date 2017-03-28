@@ -8,6 +8,4 @@ RUN apk add --no-cache --update \
     sudo \
     python
 
-ADD . /app
 
-ENTRYPOINT ["/home/shippable/cexec/dist/main/main"]
