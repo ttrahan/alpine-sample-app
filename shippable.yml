@@ -1,27 +1,22 @@
 # Language setting
-language: node_js
+language: none
 
 env:
   global:
     - REGISTRY_URL=ttrahan # {account name}
-    - REPO=shippable-alpine
+    - REPO=shippable-alpine-node
 
 build:
-  pre_ci:
-    - docker build -t="$REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER" .
-    - docker push $REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER
-
   pre_ci_boot:
-    image_name: ttrahan/shippable-alpine
-    image_tag: $BRANCH.$BUILD_NUMBER
+    image_name: ttrahan/shippable-alpine-build
+    image_tag: latest
     pull: true
     options: "-e HOME=/root"
 
   ci:
     - echo 'CI is running'
-    - apk update && apk add nodejs
-    - npm install
-    - docker inspect c.exec.alpine-sample-app.$BUILD_NUMBER.1
+    - docker build -t="$REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER" .
+    - docker push $REGISTRY_URL/$REPO:$BRANCH.$BUILD_NUMBER
 
 integrations:
   hub:
