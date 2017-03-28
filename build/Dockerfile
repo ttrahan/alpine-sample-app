@@ -5,6 +5,7 @@ RUN apk add --no-cache --update \
     coreutils \
     git \
     openssh-client \
+    ca-certificates \
     sudo \
     python \
     py-pip \
